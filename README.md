@@ -54,3 +54,9 @@ Output:0,1,NORTH
 Output:0,0,WEST
 Output:3,3,NORTH
 ``` 
+
+## Improvements
+
+- Use a dependency injection framework such Spring or Guice, to build the objects in the projects;
+- Allow multiples of a command e.g. MOVE 3 would move the robot in the same direction 3 times;
+

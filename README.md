@@ -46,3 +46,11 @@ Run the executable JAR, **zone-toyrobot-1.0.jar**, using the following command:
 java -jar zone-toyrobot-1.0.jar [ path & name of your command file ] 
 
 ```
+
+The output is written to System.out. Should you use the example commands file, **test/resources/ToyRobotCommands.txt**, the output will be the following:
+
+```
+Output:0,1,NORTH
+Output:0,0,WEST
+Output:3,3,NORTH
+``` 

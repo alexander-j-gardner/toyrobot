@@ -1,0 +1,20 @@
+place -1,0,EAST
+place 5,0,EAST
+place 0,5,EAST
+place 0,-1,EAST
+move
+left
+right
+report
+place 0,0,NORTH
+move
+report
+place 0,0,NORTH
+left
+report
+place 1,2,EAST
+move
+move
+left
+move
+report

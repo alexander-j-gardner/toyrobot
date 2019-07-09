@@ -1,7 +1,13 @@
 package com.alexg.zone.toyrobot.commands.build;
 
-import com.alexg.zone.toyrobot.commands.*;
-import java.util.ArrayList;
+import com.alexg.zone.toyrobot.commands.Command;
+import com.alexg.zone.toyrobot.commands.CommandType;
+import com.alexg.zone.toyrobot.commands.LeftCommand;
+import com.alexg.zone.toyrobot.commands.MoveCommand;
+import com.alexg.zone.toyrobot.commands.PlaceCommand;
+import com.alexg.zone.toyrobot.commands.ReportCommand;
+import com.alexg.zone.toyrobot.commands.RightCommand;
+
 import java.util.List;
 
 public class CommandBuilder {
@@ -21,18 +27,15 @@ public class CommandBuilder {
     public Command build() {
         switch (commandType) {
             case LEFT:
-                return new LeftCommand(CommandType.LEFT, new ArrayList<String>());
+                return new LeftCommand();
             case RIGHT:
-                return new RightCommand(CommandType.RIGHT, new ArrayList<String>());
+                return new RightCommand();
             case REPORT:
-                return new ReportCommand(CommandType.REPORT, new ArrayList<String>());
+                return new ReportCommand();
             case MOVE:
-                return new MoveCommand(CommandType.MOVE, new ArrayList<String>());
+                return new MoveCommand();
             case PLACE:
-                if (commandParameters == null) {
-                    throw new CommandBuilderException("Command parameters missing for CommandType: " + commandType);
-                }
-                return new PlaceCommand(CommandType.PLACE, commandParameters);
+                return new PlaceCommand(commandParameters);
             default:
                 throw new CommandBuilderException("Unsupported CommandType: " + commandType);
         }

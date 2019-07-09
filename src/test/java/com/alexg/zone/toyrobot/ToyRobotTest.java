@@ -1,14 +1,18 @@
 package com.alexg.zone.toyrobot;
 
-import com.alexg.zone.toyrobot.commands.*;
-import com.alexg.zone.toyrobot.grid.direction.RotationalDirectionTracker;
-import com.alexg.zone.toyrobot.grid.dimension.GridDimensions;
-import com.alexg.zone.toyrobot.grid.position.GridPositionTracker;
+import com.alexg.zone.toyrobot.commands.LeftCommand;
+import com.alexg.zone.toyrobot.commands.MoveCommand;
+import com.alexg.zone.toyrobot.commands.PlaceCommand;
+import com.alexg.zone.toyrobot.commands.ReportCommand;
+import com.alexg.zone.toyrobot.commands.RightCommand;
 import com.alexg.zone.toyrobot.grid.ToyRobotGrid;
+import com.alexg.zone.toyrobot.grid.dimension.GridDimensions;
+import com.alexg.zone.toyrobot.grid.direction.RotationalDirectionTracker;
+import com.alexg.zone.toyrobot.grid.position.GridPositionTracker;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ToyRobotTest {
 
@@ -22,21 +26,19 @@ public class ToyRobotTest {
         ToyRobot toyRobot = new ToyRobot(toyRobotGrid);
         Assert.assertEquals("ToyRobot should not be started", false, toyRobot.isStarted());
 
-        toyRobot.acceptCommand(new LeftCommand(CommandType.LEFT, new ArrayList<String>()));
+        toyRobot.acceptCommand(new LeftCommand());
         Assert.assertEquals("ToyRobot should not be started", false, toyRobot.isStarted());
 
-        toyRobot.acceptCommand(new RightCommand(CommandType.RIGHT, new ArrayList<String>()));
+        toyRobot.acceptCommand(new RightCommand());
         Assert.assertEquals("ToyRobot should not be started", false, toyRobot.isStarted());
 
-        toyRobot.acceptCommand(new MoveCommand(CommandType.MOVE, new ArrayList<String>()));
+        toyRobot.acceptCommand(new MoveCommand());
         Assert.assertEquals("ToyRobot should not be started", false, toyRobot.isStarted());
 
-        toyRobot.acceptCommand(new ReportCommand(CommandType.REPORT, new ArrayList<String>()));
+        toyRobot.acceptCommand(new ReportCommand());
         Assert.assertEquals("ToyRobot should not be started", false, toyRobot.isStarted());
 
-
-        toyRobot.acceptCommand(new PlaceCommand(CommandType.PLACE,
-                new ArrayList<String>() { {add("3"); add("3"); add("WEST");} } ));
+        toyRobot.acceptCommand(new PlaceCommand(Arrays.asList("3", "3", "WEST")));
         Assert.assertEquals("ToyRobot should be started", true, toyRobot.isStarted());
     }
 }
